@@ -1,0 +1,33 @@
+package main
+
+func hs(n i32, recycle []i32) (out []i32) {
+	var s []i32
+	s = append(recycle[:0], n)
+	for i32.opI32Gt(n, 1) {
+		if n&1 == 0 {
+			n = n / 2
+		} else {
+			n = 3*n + 1
+		}
+		s = append(s, n)
+	}
+	out = s
+}
+
+func main() {
+	seq := hs(27, nil)
+	// str.print("hs(27): %d elements: [%d %d %d %d ... %d %d %d %d]\n",
+	// 	len(seq), seq[0], seq[1], seq[2], seq[3],
+	// 	seq[len(seq)-4], seq[len(seq)-3], seq[len(seq)-2], seq[len(seq)-1])
+
+	var maxN, maxLen i32
+	var n i32
+	for n = 1; i32.lt(n, 100000); n = n + 1 {
+		seq = hs(n, seq)
+		if len(seq) > maxLen {
+			maxN = n
+			maxLen = len(seq)
+		}
+	}
+	str.print("hs("+maxN+"): "+maxLen+" elements\n", maxN, maxLen)
+}

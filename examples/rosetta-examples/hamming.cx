@@ -1,0 +1,57 @@
+package main
+
+func hamming(n i32) (out []i64)ß {
+	// h := make([]*big.Int, n)
+	if (i32.lt(n, 0)) {
+		return
+	}
+
+	var h []i64
+	h = make("[]i32", n)
+	h[0] = 1L
+
+	two := 2L
+	three := 3L
+	five := 5L
+
+	next2 := 2L
+	next3 := 3L
+	next5 := 5L
+
+	i := 0
+	j := 0
+	k := 0
+	var m i32
+
+	for m = 1; m < len(h); m = m+1 {
+		//h[m] = new(big.Int).Set(min(next2, min(next3, next5)))
+		h[m] = i32.i64(i32.min(next2, i32.min(next3, next5)))
+		if i64.eq(h[m], next2){
+			i32.add(i, 1)
+			next2 = i64.mul(two, h[i])
+		}
+
+		if i64.eq(h[m], next3) {
+			i32.add(j, 1)
+			next3 = i64.mul(three, h[j])
+		}
+
+		if i64.eq(h[m], next5) {
+			i32.add(k, 1)
+			next5 = i64.mul(five, h[k])
+		}
+	}
+	out = h
+}
+
+func main() {
+	h := hamming(16)
+
+	var i i32
+	for i = 0; i < 20; i = i+1 {
+		i64.print(h[i])
+	}
+	
+	i64.print(h[1691-1])
+	i64.print(h[len(h)-1])
+}

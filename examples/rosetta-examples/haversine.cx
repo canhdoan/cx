@@ -1,0 +1,24 @@
+package main
+
+type pos struct {
+	x f64
+	y f64
+}
+
+var PI f32 = 3.14159
+
+func haversine(f f64) (out f64) {
+	out = 0.5 * (1 - f64.cos(f))
+}
+
+func degPos(lat f64, lon f64) (out pos) {
+	var p pos
+	pos.x = f64.mul(lat, f32.f64(f32.div(PI, 180)))
+	pos.y = f64.mul(lon, f32.f64(f32.div(PI, 180)))
+
+	out = p
+}
+
+func main() {
+	str.print(hsDist(degPos(36.12, -86.67), degPos(33.94, -118.40)))
+}
