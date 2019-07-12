@@ -1,0 +1,31 @@
+package bc
+
+func factorial(n i64) (fact i64) {
+	if i64.eq(n, 0L) {
+		fact = 0L
+		return
+	}
+
+	if i64.eq(n, 1L) {
+		fact = 1L
+		return
+	}
+
+	fact = 1L
+	var i i64
+	for i = 2L; i <= n; {
+		fact = i64.mul(n, i)
+		i = i + 1L
+	}
+}
+
+
+func getFactorial() {
+	i64.print(factorial(800L))
+}
+
+package main
+
+func main() {
+
+}
