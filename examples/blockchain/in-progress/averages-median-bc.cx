@@ -1,0 +1,39 @@
+package bc
+
+var a [4]f64
+
+func median() (out f64) {
+	//sort a array
+
+	var l i32
+	l = len(a)
+
+	var half i32
+	half = i32.div(l,2 )
+
+	var m f64
+	m = a[half]
+
+	
+	
+    if i32.mod(l, 2) == 0 {
+        m = i32.div(i32.add(m, a[half-1]), 2)
+    }
+	out = m
+}
+
+func averagesMedian() {
+	inputs[0] = 3D
+	inputs[1] = 1D
+	inputs[2] = 4D
+	inputs[3] = 1D
+
+	var median f64
+	median = median(inputs)
+	f64.print(median)
+}
+
+packge main
+
+func main() {
+}

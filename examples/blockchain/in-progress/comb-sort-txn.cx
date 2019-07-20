@@ -1,6 +1,7 @@
 package main
+
 import "bc"
 
 func main() {
-	bc.showChowla()
+	bc.combSort()
 }
