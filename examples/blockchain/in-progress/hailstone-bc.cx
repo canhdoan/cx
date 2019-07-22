@@ -1,0 +1,32 @@
+package bc
+
+func hs(n i32, recycle []i32) (out []i32) {
+	out = append(recycle, n)
+	for n > 1 {
+		if i32.bitand(n,1) == 0 {
+			n = i32.div(n, 2)
+		} else {
+			n = 3*n + 1
+		}
+		out = append(out, n)
+	}
+}
+
+func incHailstone() {
+	var recycle []i32
+	seq := hs(27, recycle)
+
+	var maxN, maxLen i32
+	for n := 1; n < 100000; n++ {
+		seq = hs(n, seq)
+		if len(seq) > maxLen {
+			maxN = n
+			maxLen = len(seq)
+		}
+	}
+}
+
+package main
+
+func main() {
+}
